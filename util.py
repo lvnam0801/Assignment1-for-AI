@@ -28,11 +28,11 @@ class Queue:
 
     def push(self, item):
         "Enqueue the 'item' into the queue"
-        self.queue.insert(0, item)
+        self.list.insert(0, item)
     
     def pop(self):
         "Dequeue the 'item' in front of the queue (This operation will remove item from the queue)"
-        return self.queue.pop()
+        return self.list.pop()
 
     def is_empty(self):
         """Return True if queue is empty."""

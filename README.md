@@ -1,1 +1,1 @@
-# Repo of assignment 1 AI
+This is repo of assignment1 of instro for AI
