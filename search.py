@@ -46,18 +46,18 @@ def graph_search(problem, data_structure):
 
     while not fringe.is_empty():
         state, path = fringe.pop()
+        "Print configuration of state"
+        print()
+        print_config(state.get_config())
 
         if(problem.is_goal_state(state)):
             return path
-        
         if state not in visited:
-            
             next_states = problem.get_successor(state)
             visited.add(state)
-
             for next in next_states:
                 if(next[0] not in visited):
-                    fringe.push((next[0]), path + [[next[1]]])
+                    fringe.push((next[0], path + [[next[1]]]))
     return []
 
 def search_DFS(problem):
@@ -71,3 +71,7 @@ def search_BFS(problem):
     Search the first shallowest node in the tree search
     """
     return graph_search(problem, Queue)
+
+def print_config(config):
+    for tube in config:
+        print(tube.list)
