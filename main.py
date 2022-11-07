@@ -1,37 +1,24 @@
-from water_sort import *
-from agents import SearchAgent
-from search import search_BFS, search_DFS
+from problem import WaterProblem
+from water_sort import heuristic
+from search import search_BFS, search_DFS, search_informed
 
-def set_data():
-    tube1 = ['B', 'Y', 'B', 'Y']
-    tube2 = ['Y', 'B', 'Y', 'B']
-    tube3 = []
 
-    # First state for program
-    data = [tube1, tube2, tube3]
-    return data
+tube1 = ['Y', 'Y', 'R', 'B']
+tube2 = ['B', 'Y', 'R', 'B']
+tube3 = ['R', 'B', 'Y', 'R']
+tube4 = []
+tube5 = []
+
+data = [tube1, tube2, tube3, tube4, tube5]
+
 
 if __name__== "__main__":
-    data = set_data()
-    start_state = GameState(data)
-    agent = SearchAgent(start_state)
-    search_BFS(agent)
+    problem = WaterProblem(data)
 
+    path_1 = search_DFS(problem)
+    path_2 = search_BFS(problem)
+    path_3 = search_informed(problem, heuristic)
 
-# def test(data):
-#     root = GameState(data)
-#     print("Root config")
-#     print_config(root.get_config())
-#     print()
-#     print("Possible actions:")
-#     action_list = root.get_legal_actions()
-#     print(action_list)
-
-#     print()
-#     print("Take actions", action_list[0], sep=" ")
-#     next_state = Actions.pour_water(root, action_list[0])
-#     print_config(next_state.get_config())
-
-#     print()
-#     print("Print of root:")
-#     print_config(root.get_config())
+    print("DFS SEARCH: ", path_1)
+    print("BFS SEARCH: ", path_2)
+    print("A_S SEARCH: ", path_3)

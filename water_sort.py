@@ -1,8 +1,9 @@
-from util import Stack
-
+from library import Stack
+import copy
             
 class GameState: 
     """
+    Configuration for Water Color Sort Problem
     Specification of full game state: color water in tubes
     """
     def __init__(self, data_list):
@@ -11,14 +12,31 @@ class GameState:
         for data in data_list:
             temp = Tube(data)
             self.config.append(temp)
-        self.cost = 0
 
     def get_legal_actions(self):
         actions_list = GameRules.get_legal_actions(self)
         return actions_list
-    
+
     def get_config(self):
         return self.config
+    
+    def compare(self, state_2):
+        config_1 = self.get_config()
+        config_2 = state_2.get_config()
+        
+        for idx_tube in range(len(config_1)):
+            tube1 = config_1[idx_tube].list
+            tube2 = config_2[idx_tube].list
+            
+            if len(tube1) != len(tube2):
+                return False
+            
+            for idx_item in range(len(tube1)):
+                if tube1[idx_item] != tube2[idx_item]:
+                    return False
+        return True
+    
+
 
 class GameRules:
     """
@@ -52,12 +70,7 @@ class WaterRules:
             return False
         else:
             return True
-    # def can_compare(conf, source_index, dest_index):
-    #     if (conf[source_index].is_empty() or conf[source_index].get_num_of_mixed() < 2): continue
-
-        
-                
-
+    
 class Tube(Stack):
     """
     A single tube in config
@@ -83,3 +96,30 @@ class Tube(Stack):
                 n = n + 1
             pre_item = item
         return n
+
+class Actions:
+    """
+    A collection of static method for manipulating move actions
+    """
+    def pour_water(state, action):
+        "Get next state from action"
+        next = copy.deepcopy(state)
+        conf = next.get_config()
+        
+        source_idx = action[0]
+        dest_idx = action[1]
+      
+        while True:
+            # get item from source tube
+            item = conf[source_idx].pop()
+            conf[dest_idx].push(item)
+            if (
+                conf[source_idx].is_empty()
+                or conf[dest_idx].is_full()
+                or item != conf[source_idx].top()
+            ): break
+        return next
+
+def heuristic(problem, state):
+    h_cost = problem.get_all_mixed_count(state) - problem.get_goal_mixed_count(state)
+    return h_cost
