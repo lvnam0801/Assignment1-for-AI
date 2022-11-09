@@ -14,11 +14,11 @@ def search_BFS(problem):
     """
     return graph_search(problem, Queue)
 
-def search_informed(problem, heuristic):
+def search_informed(problem):
     """
     Search the the first node with the least total cost first
     """
-    return a_start_search(problem, heuristic)
+    return a_start_search(problem, problem.heuristic)
 
 class SearchProblem:
     
@@ -64,7 +64,8 @@ def graph_search(problem, data_structure):
         state, path = fringe.pop()
         # "Print configuration of state"
         # print_config(state.get_config())
-
+        state.print_state()
+        print('------------------')
         if(problem.is_goal_state(state)):
             return path
 
@@ -94,7 +95,6 @@ def a_start_search(problem, heuristic=null_heuristic):
         # print()
         # print_config(state.get_config())
         # print(cost)
-        
         if(problem.is_goal_state(state)):
             return path
         
@@ -106,7 +106,7 @@ def a_start_search(problem, heuristic=null_heuristic):
             for next in next_states:
                 if visited.check_in_visited(next[0]) == False:
                     g_cost = cost + next[2]
-                    h_cost = heuristic(problem, next[0])
+                    h_cost = problem.heuristic(next[0])
                     estimate_cost = g_cost + h_cost
                     fringe.update_heap((next[0], path + [next[1]], g_cost), estimate_cost)
     return []
