@@ -1,5 +1,7 @@
 from library import Stack
 import copy
+
+SIZE = 4
             
 class GameState: 
     """
@@ -35,9 +37,21 @@ class GameState:
                 if tube1[idx_item] != tube2[idx_item]:
                     return False
         return True
+
+     
+    def get_all_mixed_count(self):
+        num_of_mixed = 0
+        for tube in self.get_config():
+            num_of_mixed = num_of_mixed + tube.get_num_of_mixed()
+        return num_of_mixed
     
-
-
+    def get_goal_mixed_count(self):
+        temp = 0
+        for tube in self.get_config():
+            temp = temp + len(tube.list)
+        temp = temp/SIZE
+        return temp
+    
 class GameRules:
     """
     These functions dictate how finger interact with their environment
@@ -52,11 +66,10 @@ class GameRules:
             if (conf[source_index].is_empty()) : continue
             
             for dest_index in range(len(conf)):
-                if WaterRules.can_pour(conf, source_index, dest_index):
+                if GameRules.can_pour(conf, source_index, dest_index):
                     action_list.append((source_index, dest_index))
         return action_list
-
-class WaterRules:
+    
     def can_pour(conf, source_index, dest_index):
         if source_index == dest_index:
             return False
@@ -70,7 +83,7 @@ class WaterRules:
             return False
         else:
             return True
-    
+
 class Tube(Stack):
     """
     A single tube in config
@@ -119,7 +132,3 @@ class Actions:
                 or item != conf[source_idx].top()
             ): break
         return next
-
-def heuristic(problem, state):
-    h_cost = problem.get_all_mixed_count(state) - problem.get_goal_mixed_count(state)
-    return h_cost
