@@ -1,5 +1,7 @@
 from library import Stack, Queue, PriorityQueue, Visited
 import library
+import random
+import copy
 
 def search_DFS(problem):
     """
@@ -49,6 +51,32 @@ class SearchProblem:
         This method retur total cost of a particular sequence of actions. The sequence must be composed of legal moves.
         """
         library.raise_no_defined()
+
+def graph_travel(problem, data_structure, N = 2):
+    """
+    The algorithm return a actions list to move from start state to goal state.
+    """
+    start_state = problem.get_start_state()
+    initial_tracer = (start_state, [])
+    current_tracer = copy.deepcopy(initial_tracer)
+    solutions = []
+
+    while len(solutions) < N:
+        try:
+            state, path = current_tracer
+
+            if(problem.is_goal_state(state)):
+                solutions.append(path)
+                current_tracer = copy.deepcopy(initial_tracer)
+                continue
+        
+            next_states = problem.get_successor(state)
+            index = random.randint(0, len(next_states) - 1)
+            next = next_states[index]
+            current_tracer = (next[0], path + [next[1]])
+        except Exception as e:
+            print(e, index, len(next_states))
+    return solutions
 
 def graph_search(problem, data_structure):
     """

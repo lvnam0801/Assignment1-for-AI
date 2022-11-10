@@ -19,6 +19,9 @@ class Stack:
         if len(self.list) == 0: 
             return True
 
+    def __len__(self):
+        return len(self.list)
+
 
 class Queue:
     """
