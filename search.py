@@ -1,5 +1,4 @@
 from library import Stack, Queue, PriorityQueue, Visited
-from util import print_config
 import library
 
 def search_DFS(problem):
@@ -62,10 +61,11 @@ def graph_search(problem, data_structure):
 
     while not fringe.is_empty(): 
         state, path = fringe.pop()
-        # "Print configuration of state"
-        # print_config(state.get_config())
+
+        print('-----------------------------')
         state.print_state()
-        print('------------------')
+        print()
+
         if(problem.is_goal_state(state)):
             return path
 
@@ -92,9 +92,10 @@ def a_start_search(problem, heuristic=null_heuristic):
     while not fringe.is_empty(): 
         state, path, cost = fringe.pop()
         
-        # print()
-        # print_config(state.get_config())
-        # print(cost)
+        print('-----------------------------')
+        state.print_state()
+        print()
+
         if(problem.is_goal_state(state)):
             return path
         

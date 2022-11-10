@@ -22,6 +22,11 @@ class GameState:
     def get_config(self):
         return self.config
     
+
+    def print_state(self):
+        for tube in self.config:
+            print(tube.list)
+    
     def compare(self, state_2):
         config_1 = self.get_config()
         config_2 = state_2.get_config()
