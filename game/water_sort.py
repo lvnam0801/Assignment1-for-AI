@@ -1,4 +1,4 @@
-from library import Stack
+from library.container import Stack
 import copy
 
 SIZE = 4

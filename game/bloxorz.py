@@ -299,4 +299,3 @@ class Action:
 
         next_conf = [next_postion_1, next_postion_2, next_status]
         return next_conf
-    

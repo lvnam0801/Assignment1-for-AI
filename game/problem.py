@@ -1,6 +1,6 @@
-import water_sort
-import bloxorz
-import search
+import game.water_sort as water_sort
+import game.bloxorz as bloxorz
+import library.search as search
 
 
 

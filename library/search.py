@@ -1,5 +1,5 @@
-from library import Stack, Queue, PriorityQueue, Visited
-import library
+from library.container import Stack, Queue, PriorityQueue, Visited
+import library.container as container
 import random
 import copy
 
@@ -31,52 +31,26 @@ class SearchProblem:
         """
         Return start state for the search problems
         """
-        library.raise_no_defined()
+        container.raise_no_defined()
     
     def is_goal_state(self, state):
         """
         Return True if and only the state is a valid goal state
         """
-        library.raise_no_defined()
+        container.raise_no_defined()
     
     def get_successor(self, state):
         """
         For a given state, this should ruturn a list of tripple(successor, action, stepCost), where successor is a successor to the current state, 'action' is the action requried to get there, and 'stepCost' is the incremental cost of expanding to that succussor.
         """
-        library.raise_no_defined()
+        container.raise_no_defined()
     
     def get_cost_of_action(self, action):
         """
         Actions: a list of actions to take
         This method retur total cost of a particular sequence of actions. The sequence must be composed of legal moves.
         """
-        library.raise_no_defined()
-
-def graph_travel(problem, data_structure, N = 2):
-    """
-    The algorithm return a actions list to move from start state to goal state.
-    """
-    start_state = problem.get_start_state()
-    initial_tracer = (start_state, [])
-    current_tracer = copy.deepcopy(initial_tracer)
-    solutions = []
-
-    while len(solutions) < N:
-        try:
-            state, path = current_tracer
-
-            if(problem.is_goal_state(state)):
-                solutions.append(path)
-                current_tracer = copy.deepcopy(initial_tracer)
-                continue
-        
-            next_states = problem.get_successor(state)
-            index = random.randint(0, len(next_states) - 1)
-            next = next_states[index]
-            current_tracer = (next[0], path + [next[1]])
-        except Exception as e:
-            print(e, index, len(next_states))
-    return solutions
+        container.raise_no_defined()
 
 def graph_search(problem, data_structure):
     """
