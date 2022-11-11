@@ -1,7 +1,8 @@
 from library.container import Stack, Queue, PriorityQueue, Visited
+from typing import List
+
 import library.container as container
 import random
-import copy
 
 def search_DFS(problem):
     """
@@ -79,11 +80,7 @@ def graph_search(problem, data_structure):
                     fringe.push((next[0], path + [next[1]]))
     return []
 
-def null_heuristic(state=None, problem=None):
-    """This heuristic is trivial"""
-    return 0
-
-def a_start_search(problem, heuristic=null_heuristic):
+def a_start_search(problem, heuristic= lambda: 0):
     """
     Search the node that has the lowest of f(n): g(n) + h(n).
     """
@@ -113,3 +110,66 @@ def a_start_search(problem, heuristic=null_heuristic):
                     estimate_cost = g_cost + h_cost
                     fringe.update_heap((next[0], path + [next[1]], g_cost), estimate_cost)
     return []
+
+class Population:
+    """
+    There is interface to implement the population.
+    """
+    class Individual:
+        """
+        The individual (type of population) in the population
+        """
+        def __init__(self, path, state_list) -> None:
+            pass
+        
+        def pair(self, other: "Population.Individual") -> "Population.Individual":
+            pass
+        
+        def __len__(self) -> int:
+            pass
+        
+    def generate_population(problem, N = 2) -> List[Individual]:
+        """
+        The algorithm return a population of idividual.
+        """
+        pass
+
+    def heuristic_bloxorz(individual: Individual):
+        pass
+    
+    def sort_population(population: List[Individual]):
+        pass
+
+    def mutate(individual: Individual, problem) -> Individual:
+        pass
+    
+    def peek_top(population: List[Individual], top=0):
+        pass
+
+def search_genertic(problem, populatioin: Population):
+    
+    N = 100
+    MUTATE_RATE = 100
+    
+    init_population = populatioin.generate_population(problem, 50)
+    old_population = init_population
+    
+    for _ in range(N):
+        
+        new_population = []
+        old_population = populatioin.sort_population(old_population)
+        
+        for i in range(len(old_population) - 1):
+            parent_x = populatioin.peek_top(old_population, i)
+            parent_y = populatioin.peek_top(old_population, i + 1)
+
+            child = parent_x.pair(parent_y)
+            if child != None:
+                new_population.append(child)
+                if random.randint(0, MUTATE_RATE) == 0:
+                    child = populatioin.mutate(child, problem)
+        if len(new_population) >= 1:
+            old_population = new_population
+    
+    top = populatioin.peek_top(old_population)
+    return top.path[1:]

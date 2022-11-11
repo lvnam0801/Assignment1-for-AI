@@ -1,4 +1,5 @@
 import heapq
+import inspect
 
 class Stack:
     """
@@ -22,7 +23,6 @@ class Stack:
     def __len__(self):
         return len(self.list)
 
-
 class Queue:
     """
     A container with a first-in-first-out (FIFO) queuing policy.
@@ -42,7 +42,6 @@ class Queue:
         """Return True if queue is empty."""
         if len(self.list) == 0:
             return True
-
 
 class PriorityQueue:
     """
@@ -81,7 +80,6 @@ class PriorityQueue:
                 heapq.heapify(self.heap)
         self.push(item, priority)
 
-
 class Visited:
     """
     Save all state was visited.
@@ -97,3 +95,9 @@ class Visited:
             if state.compare(v_state) == True:
                 return True
         return False
+
+def raise_no_defined():
+    file_name = inspect.stack()[1][1]
+    line = inspect.stack()[1][2]
+    method = inspect.stack()[1][3]
+    print("Method not implemented: %s at line %s of %s".format(method, line, file_name))
