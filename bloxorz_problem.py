@@ -108,9 +108,7 @@ def genertic_search(problem, data_structure = BloxorzIndividual):
             if child != None:
                 new_population.append(child)
                 if random.randint(0, MUTATE_RATE) == 0:
-                    print(child.path)
                     child = mutate(child, problem)
-                    print(child.path)
         if len(new_population) >= 1:
             old_population = new_population
     
