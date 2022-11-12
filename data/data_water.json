@@ -1,25 +1,111 @@
 [
-    {
-        "level": 1,
-        "config":
-
-        {
-            "tube1": ["Y", "Y", "R", "B"],
-            "tube2": ["B", "Y", "R", "B"],
-            "tube3": ["R", "B", "Y", "R"],
-            "tube4": [],
-            "tube5": []
-        }
-    },
-    {
-        "level": 2,
-        "config":
-            {
-                "tube1": ["Y", "B", "R", "Y"],
-                "tube2": ["B", "R", "Y", "Y"],
-                "tube3": ["B", "R", "B", "R"],
-                "tube4": [],
-                "tube5": []
-            }
+  {
+    "level": 1,
+    "config": {
+      "tube1": ["O"],
+      "tube2": ["O", "O", "O"]
     }
+  },
+  {
+    "level": 2,
+    "config": {
+      "tube1": ["B", "O", "B", "O"],
+      "tube2": ["O", "B", "O", "B"],
+      "tube3": []
+    }
+  },
+  {
+    "level": 3,
+    "config": {
+      "tube1": ["O", "O", "R", "B"],
+      "tube2": ["B", "O", "R", "B"],
+      "tube3": ["R", "B", "O", "R"],
+      "tube4": [],
+      "tube5": []
+    }
+  },
+  {
+    "level": 4,
+    "config": {
+      "tube1": ["O", "B", "R", "O"],
+      "tube2": ["B", "R", "O", "O"],
+      "tube3": ["B", "R", "B", "R"],
+      "tube4": [],
+      "tube5": []
+    }
+  },
+  {
+    "level": 5,
+    "config": {
+      "tube1": ["O", "C", "B", "P"],
+      "tube2": ["P", "R", "O", "R"],
+      "tube3": ["C", "C", "R", "B"],
+      "tube4": ["C", "O", "B", "P"],
+      "tube5": ["O", "P", "R", "B"],
+      "tube6": [],
+      "tube7": []
+    }
+  },
+  {
+    "level": 6,
+    "config": {
+      "tube1": ["B", "P", "C", "C"],
+      "tube2": ["B", "O", "R", "C"],
+      "tube3": ["O", "B", "P", "B"],
+      "tube4": ["R", "O", "R", "P"],
+      "tube5": ["O", "C", "R", "P"],
+      "tube6": [],
+      "tube7": []
+    }
+  },
+  {
+    "level": 7,
+    "config": {
+      "tube1": ["R", "R", "O", "B"],
+      "tube2": ["P", "B", "P", "O"],
+      "tube3": ["P", "B", "R", "P"],
+      "tube4": ["O", "C", "R", "C"],
+      "tube5": ["B", "C", "C", "O"],
+      "tube6": [],
+      "tube7": []
+    }
+  },
+  {
+    "level": 8,
+    "config": {
+      "tube1": ["O", "P", "C", "P"],
+      "tube2": ["O", "R", "R", "B"],
+      "tube3": ["B", "B", "C", "R"],
+      "tube4": ["P", "C", "R", "O"],
+      "tube5": ["C", "O", "P", "B"],
+      "tube6": [],
+      "tube7": []
+    }
+  },
+  {
+    "level": 9,
+    "config": {
+      "tube1": ["C", "O", "B", "R"],
+      "tube2": ["O", "P", "R", "C"],
+      "tube3": ["O", "B", "R", "C"],
+      "tube4": ["P", "B", "B", "C"],
+      "tube5": ["P", "P", "R", "O"],
+      "tube6": [],
+      "tube7": []
+    }
+  },
+  {
+    "level": 10,
+    "config": {
+      "tube1": ["B", "B", "O", "P"],
+      "tube2": ["O", "P", "Y", "P"],
+      "tube3": ["R", "C", "Y", "G"],
+      "tube4": ["G", "R", "G", "C"],
+      "tube5": ["B", "B", "Y", "C"],
+      "tube6": ["G", "O", "R", "Y"],
+      "tube7": ["C", "R", "O", "P"],
+      "tube8": [],
+      "tube9": []
+    }
+  }
 ]
