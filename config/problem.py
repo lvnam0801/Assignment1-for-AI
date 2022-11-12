@@ -1,5 +1,5 @@
-import game.water_sort as water_sort
-import game.bloxorz as bloxorz
+import config.water_sort as water_sort
+import config.bloxorz as bloxorz
 import library.search as search
 from typing import List
 import copy
@@ -116,7 +116,6 @@ class BloxorzPopulation(search.Population):
 
         while len(population) < N:
             state, path, config = current_tracer
-            
             if(problem.is_goal_state(state)):
                 population.append(BloxorzPopulation.Individual(path, config))
                 current_tracer = copy.deepcopy(initial_tracer)
@@ -126,7 +125,11 @@ class BloxorzPopulation(search.Population):
             index = random.randint(0, len(next_states) - 1)
             next = next_states[index]
             current_tracer = (next[0], path + [next[1]], config + [next[0]])
-
+            
+            "Prevent: no solution for the problem"
+            if len(path) > 10000:
+                break
+        
         return population
 
     def heuristic_bloxorz(individual: Individual):

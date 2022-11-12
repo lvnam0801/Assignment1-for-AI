@@ -65,10 +65,6 @@ def graph_search(problem, data_structure):
     while not fringe.is_empty(): 
         state, path = fringe.pop()
 
-        print('-----------------------------')
-        state.print_state()
-        print()
-
         if(problem.is_goal_state(state)):
             return path
 
@@ -91,10 +87,6 @@ def a_start_search(problem, heuristic= lambda: 0):
     while not fringe.is_empty(): 
         state, path, cost = fringe.pop()
         
-        print('-----------------------------')
-        state.print_state()
-        print()
-
         if(problem.is_goal_state(state)):
             return path
         
@@ -152,6 +144,9 @@ def search_genertic(problem, populatioin: Population):
     MUTATE_RATE = 100
     
     init_population = populatioin.generate_population(problem, 50)
+    if len(init_population) == 0:
+        return []
+    
     old_population = init_population
     
     for _ in range(N):
