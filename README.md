@@ -40,6 +40,6 @@ The data of configuration of the game in:
 
 `./data/data-water.json for water-sort game`
 
-> The Data will be loaded in load_data.py srcipt file. 
+> The Data will be loaded in the load_data.py script file. 
 
-> Plase set configuration match with that format to make new level in game.
+> Please set the configuration to match that format to make new levels in the game.
