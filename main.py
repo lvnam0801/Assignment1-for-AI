@@ -4,7 +4,6 @@ import agent
 import tracemalloc
 import sys
 
-
 tracemalloc.start()
 start_time = time.time()
 
@@ -75,6 +74,5 @@ if __name__== "__main__":
 
 end_time = time.time()
 mem = tracemalloc.get_traced_memory()
-
-print("[TIME(s): {:.9f}]".format(end_time - start_time))
-print("[MAX MEMORY(mb): {:.9f}]".format(mem[1]/(1024*1024)))
+print("[TIME(s): {:.5f}]".format(end_time - start_time))
+print("[MAX MEMORY(mb): {:.5f}]".format(mem[1]/(1024*1024)))

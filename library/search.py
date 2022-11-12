@@ -1,8 +1,10 @@
 from library.container import Stack, Queue, PriorityQueue, Visited
 from typing import List
 
+
 import library.container as container
 import random
+import config
 
 def search_DFS(problem):
     """
@@ -64,7 +66,6 @@ def graph_search(problem, data_structure):
 
     while not fringe.is_empty(): 
         state, path = fringe.pop()
-
         if(problem.is_goal_state(state)):
             return path
 
@@ -140,16 +141,17 @@ class Population:
 
 def search_genertic(problem, populatioin: Population):
     
-    N = 100
-    MUTATE_RATE = 100
+    MUTATE_RATE = config.MUTATE_RATE
+    NUMBER_LOOP = config.NUMBER_LOOP
+    POPULATION_SIZE = config.POPULATION_SIZE
     
-    init_population = populatioin.generate_population(problem, 50)
+    init_population = populatioin.generate_population(problem, POPULATION_SIZE)
     if len(init_population) == 0:
         return []
     
     old_population = init_population
     
-    for _ in range(N):
+    for _ in range(NUMBER_LOOP):
         
         new_population = []
         old_population = populatioin.sort_population(old_population)

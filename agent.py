@@ -1,5 +1,5 @@
-import config.problem as problem
-import config.visualize as visualize
+import game.problem as problem
+import game.visualize as visualize
 import library.search as search
 
 def solve_water_sort(data_config_game, argv):

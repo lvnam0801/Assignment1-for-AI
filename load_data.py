@@ -1,8 +1,6 @@
 
 import json
 
-
-
 def load_data_bloxorz():
     input_file = open('./data/data_bloxorz.json')
     input_data = json.load(input_file)
@@ -20,8 +18,9 @@ def load_data_water():
     input_data = json.load(input_file)
     data = []
     for input in input_data:
+        input_config = input['config']
         config = []
-        for idx in range(len(input)):
-            config.append(input["tube" + str(idx + 1)])
+        for idx in range(len(input_config)):
+            config.append(input_config["tube" + str(idx + 1)])
         data.append(config)
     return data

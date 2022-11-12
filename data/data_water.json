@@ -1,16 +1,25 @@
 [
     {
-        "tube1": ["Y", "Y", "R", "B"],
-        "tube2": ["B", "Y", "R", "B"],
-        "tube3": ["R", "B", "Y", "R"],
-        "tube4": [],
-        "tube5": []
+        "level": 1,
+        "config":
+
+        {
+            "tube1": ["Y", "Y", "R", "B"],
+            "tube2": ["B", "Y", "R", "B"],
+            "tube3": ["R", "B", "Y", "R"],
+            "tube4": [],
+            "tube5": []
+        }
     },
     {
-        "tube1": ["Y", "B", "R", "Y"],
-        "tube2": ["B", "R", "Y", "Y"],
-        "tube3": ["B", "R", "B", "R"],
-        "tube4": [],
-        "tube5": []
+        "level": 2,
+        "config":
+            {
+                "tube1": ["Y", "B", "R", "Y"],
+                "tube2": ["B", "R", "Y", "Y"],
+                "tube3": ["B", "R", "B", "R"],
+                "tube4": [],
+                "tube5": []
+            }
     }
 ]

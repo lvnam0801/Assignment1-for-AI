@@ -1,6 +1,6 @@
-import config.problem as problem
-import config.water_sort as water_sort
-import config.bloxorz as bloxorz
+import game.problem as problem
+import game.water_sort as water_sort
+import game.bloxorz as bloxorz
 
 def visualize_water_sort(problem: problem.WaterProblem, path):
     """

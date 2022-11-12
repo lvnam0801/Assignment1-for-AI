@@ -1,5 +1,5 @@
-import config.water_sort as water_sort
-import config.bloxorz as bloxorz
+import game.water_sort as water_sort
+import game.bloxorz as bloxorz
 import library.search as search
 from typing import List
 import copy
@@ -75,7 +75,9 @@ class BloxorzProblem(search.SearchProblem):
         return 1
     
 class BloxorzPopulation(search.Population):
-
+    """
+    Population config for genertic search.
+    """
     class Individual:
         def __init__(self, path, state_list) -> None:
             self.path = path

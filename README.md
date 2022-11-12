@@ -1,4 +1,12 @@
 This is repo of assignment1 of instro for AI
+# Configuration for game
+> For genertic search, set argument in `config.py` file.
+```
+"Genertic argument"
+NUMBER_LOOP = 100
+POPULATION_SIZE = 10
+MUTATE_RATE = 100
+```
 # The syntax to run program
 > Cd to the folder that contain the main.py
 > Run command: python3 main.py + options (below)

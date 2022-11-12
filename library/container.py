@@ -95,6 +95,9 @@ class Visited:
             if state.compare(v_state) == True:
                 return True
         return False
+    
+    def __len__(self):
+        return len(self.visited)
 
 def raise_no_defined():
     file_name = inspect.stack()[1][1]
